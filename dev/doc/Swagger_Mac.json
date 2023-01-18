@@ -40,7 +40,47 @@
         }
       }
     },
-    "/menu/categories/:id_category/items": {
+    "/categories/:id_category/items": {
+      "get": {
+        "description": "Retrieves one available category and the its item",
+        "responses": {
+          "200": {
+            "description": "This endpoint always returns with success"
+          }
+        }
+      }
+    },
+    "/categories/:id_category/items/:id_item": {
+      "get": {
+        "description": "Retrieves one available category and the its item",
+        "responses": {
+          "200": {
+            "description": "This endpoint always returns with success"
+          }
+        }
+      }
+    },
+    "/servingsizes/:id_servingsizes": {
+      "get": {
+        "description": "Retrieves one available category and the its item",
+        "responses": {
+          "200": {
+            "description": "This endpoint always returns with success"
+          }
+        }
+      }
+    },
+    "/servingsizes/:id_servingsizes/items": {
+      "get": {
+        "description": "Retrieves one available category and the its item",
+        "responses": {
+          "200": {
+            "description": "This endpoint always returns with success"
+          }
+        }
+      }
+    },
+    "/categories/:id_category/items?calories=200": {
       "get": {
         "description": "Retrieves one available category and the its item",
         "responses": {
