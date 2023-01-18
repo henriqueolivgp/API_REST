@@ -1,0 +1,54 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Biblioteca",
+    "description": "API REST exemplo",
+    "version": "1.0"
+  },
+  "host": "localhost",
+  "basePath": "/api",
+  "schemes": ["https"],
+
+  "paths": {
+    "/version": {
+      "get": {
+        "description": "Retrieves the current version of the API",
+        "responses": {
+          "200": {
+            "description": "This endpoint always returns with success"
+          }
+        }
+      }
+    },
+    "/menu/": {
+      "get": {
+        "description": "Retrieves all the available menus",
+        "responses": {
+          "200": {
+            "description": "This endpoint always returns with success"
+          }
+        }
+      }
+    },
+    "/menu/categories": {
+      "get": {
+        "description": "Retrieves all the available categories",
+        "responses": {
+          "200": {
+            "description": "This endpoint always returns with success"
+          }
+        }
+      }
+    },
+    "/menu/categories/:id_category/items": {
+      "get": {
+        "description": "Retrieves one available category and the its item",
+        "responses": {
+          "200": {
+            "description": "This endpoint always returns with success"
+          }
+        }
+      }
+    }
+  }
+}
