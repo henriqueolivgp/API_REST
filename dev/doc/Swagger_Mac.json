@@ -20,7 +20,7 @@
         }
       }
     },
-    "/menu/": {
+    "/menu": {
       "get": {
         "description": "Retrieves all the available menus",
         "responses": {
@@ -30,7 +30,7 @@
         }
       }
     },
-    "/menu/categories": {
+    "/categories": {
       "get": {
         "description": "Retrieves all the available categories",
         "responses": {
