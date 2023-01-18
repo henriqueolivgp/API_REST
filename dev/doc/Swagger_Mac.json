@@ -101,10 +101,16 @@
             "$ref": "#/parameters/menu"
           },
           {
-            "$ref": "#/parameters/recipeBodyImageUrl"
+            "$ref": "#/parameters/categories"
           },
           {
-            "$ref": "#/parameters/recipeBodyOriginalUrl"
+            "$ref": "#/parameters/item"
+          },
+          {
+            "$ref": "#/parameters/servingsizes"
+          },
+          {
+            "$ref": "#/parameters/calories"
           }
         ]
       }
