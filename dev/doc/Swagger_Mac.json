@@ -9,6 +9,62 @@
   "basePath": "/api",
   "schemes": ["https"],
 
+    "parameters": {
+      "menu": {
+        "name": "menu",
+        "in": "body",
+        "description": "A new menu to be created",
+        "required": true,
+        "schema": {
+          "name": {}
+        }
+      },
+
+      "categories": {
+        "name": "categories",
+        "in": "path",
+        "description": "The name of the categories",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "default": "Breakfast"
+      },
+
+      "servingsizes": {
+        "name": "servingsizes",
+        "in": "path",
+        "description": "The name of the servingsizes",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "default": "4.8 oz (136 g)"
+      },
+
+      "items": {
+        "name": "items",
+        "in": "path",
+        "description": "The name of the items",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "default": "Egg McMuffin"
+      },
+
+      "calories": {
+        "name": "calories",
+        "in": "path",
+        "description": "The name of the calories",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "default": "300"
+      }
+    },
+
   "paths": {
     "/version": {
       "get": {
@@ -20,6 +76,7 @@
         }
       }
     },
+
     "/menu": {
       "get": {
         "description": "Retrieves all the available menus",
@@ -28,8 +85,31 @@
             "description": "This endpoint always returns with success"
           }
         }
+      },
+      "post": {
+        "description": "Insert a new menu into the database",
+        "responses": {
+          "201": {
+            "description": "If the menu was created successfully"
+          },
+          "400": {
+            "description": "If an error occurs"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/parameters/menu"
+          },
+          {
+            "$ref": "#/parameters/recipeBodyImageUrl"
+          },
+          {
+            "$ref": "#/parameters/recipeBodyOriginalUrl"
+          }
+        ]
       }
     },
+
     "/categories": {
       "get": {
         "description": "Retrieves all the available categories",
@@ -40,6 +120,7 @@
         }
       }
     },
+
     "/categories/:id_category/items": {
       "get": {
         "description": "Retrieves one available category and the its item",
@@ -50,6 +131,7 @@
         }
       }
     },
+
     "/categories/:id_category/items/:id_item": {
       "get": {
         "description": "Retrieves one available category and the its item",
@@ -60,6 +142,7 @@
         }
       }
     },
+
     "/servingsizes/:id_servingsizes": {
       "get": {
         "description": "Retrieves one available category and the its item",
@@ -70,6 +153,7 @@
         }
       }
     },
+
     "/servingsizes/:id_servingsizes/items": {
       "get": {
         "description": "Retrieves one available category and the its item",
@@ -80,6 +164,7 @@
         }
       }
     },
+
     "/categories/:id_category/items?calories=200": {
       "get": {
         "description": "Retrieves one available category and the its item",
