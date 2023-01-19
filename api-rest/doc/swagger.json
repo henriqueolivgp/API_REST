@@ -20,6 +20,22 @@
         }
       },
 
+      "email": {
+        "name": "email",
+        "description": "email para autenticação",
+        "required": true,
+        "in": "header",
+        "default": "admin@admin"
+      },
+      
+      "password": {
+        "name": "password",
+        "description": "password para autenticação",
+        "required": true,
+        "in": "header",
+        "default": "12456"
+      },
+
       "categories": {
         "name": "categories",
         "in": "path",
