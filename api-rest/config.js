@@ -1,5 +1,4 @@
 const packageJson = require("./package.json");
-require('dotenv').config();
 
 
 require('dotenv').config({
