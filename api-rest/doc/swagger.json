@@ -6,8 +6,8 @@
     "version": "1.0"
   },
   "host": "localhost",
-  "basePath": "/api",
-  "schemes": ["https"],
+  "basePath": "/api/v1",
+  "schemes": ["http"],
 
     "parameters": {
       "menu": {
