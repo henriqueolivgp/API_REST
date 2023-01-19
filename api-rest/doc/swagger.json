@@ -61,7 +61,7 @@
         "schema": {
           "type": "string"
         },
-        "default": "300"
+        "default": "300" 
       }
     },
 
