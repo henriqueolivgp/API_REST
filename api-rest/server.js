@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require('cors');
 const swaggerUI = require('swagger-ui-express');
+const router = require('./routes/index');
 
 // Acede ao ficheiro config.js para ir buscar as configurações
 const config = require('./config');
@@ -17,6 +18,8 @@ const swaggerUi = require("swagger-ui-express");
 
 const app = express();
 app.use(express.json());
+app.use(router);
+
 app.use(cors({credentials: true, origin: true}));
 app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerConfig));
 
