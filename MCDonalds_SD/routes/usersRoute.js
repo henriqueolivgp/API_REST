@@ -1,4 +1,4 @@
-const db = require('../database');
+const db = require("../db");
 
 module.exports = {
 
@@ -7,32 +7,34 @@ module.exports = {
           SELECT
             *
           FROM 
-            categories
+            users
         `).then(q => q.rows);
     },
 
     getById: async (id) => {
 
-        const recipes = await db.query(`
+        const users = await db.query(`
             SELECT 
               * 
             FROM
-            categories
+              users
             WHERE
               id = $1
         `, [id]).then(q => q.rows);
 
-        if(recipes.length > 0) {
-            return recipes[0];
+        if(users.length > 0) {
+            return users[0];
         }
 
-        throw new Error(`Category with id='${id}' not found!`);
+        throw new Error(`Recipe with id='${id}' not found!`);
     },
 
     getIngredients: async(id) => {
         return await db.query(`
             SELECT 
-              i.category,
+              i.name,
+              i.type,
+              ri.quantity
             FROM
               recipe_ingredients ri JOIN ingredients i ON
                 ri.ingredient_id = i.id
