@@ -3,7 +3,6 @@ const cors = require('cors');
 const {parse} = require('csv-parse');
 const fs = require('fs');
 const config = require('./config');
-
 const db = require('./db')
 
 const parser = parse({columns:true}, function (err, records){
@@ -20,7 +19,7 @@ app.use(cors({credentials: true, origin: true}));
 
 //ROUTES VÃO SER COLOCADOS AQUI!
 const router = require('./routes/index.js');
-app.use('/api', router);
+app.use('/api/v1', router);
 
 // url da api
 app.listen(config.port, () => {
