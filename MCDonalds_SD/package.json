@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "migrate": "node scripts/categories.js",
-    "seed": "node scripts/users.js",
+    "categories": "node scripts/categories.js",
+    "users": "node scripts/users.js",
     "menu": "node scripts/menu.js"
   },
   "author": "",

@@ -1,13 +1,13 @@
-const config = require('./config');
+//const config = require('./config');
 const knex = require('knex')
 
 module.exports = knex({
   client: 'postgres',
   connection: {
     host: 'db',
-    user: config.POSTGRES_USERNAME,
-    password: config.POSTGRES_PASSWORD,
-    database: config.POSTGRES_DATABASE,
+    user: 'docker',
+    password: '123456',
+    database: 'docker',
   },
 })
 

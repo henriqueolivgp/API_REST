@@ -7,7 +7,7 @@ const db = require('../db');
       table.increments()
       table.string('category')
     })
-    console.log('Created menus table!')
+    console.log('Created categories table!')
     process.exit(0)
     
   } catch (err) {
