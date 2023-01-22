@@ -18,8 +18,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors({credentials: true, origin: true}));
 
 //ROUTES VÃO SER COLOCADOS AQUI!
-const router = require('./routes/index.js');
-app.use('/api/v1', router);
+const route = require('./routes/index.js');
+app.use('/api/v1', route);
 
 // url da api
 app.listen(config.port, () => {

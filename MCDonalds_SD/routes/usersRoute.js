@@ -1,14 +1,10 @@
-const usersRouter = require("express").Router();
+const usersRoute = require("express").Router();
 const controller = require("../controllers/users");
-const db = require("../db");
 
-/*usersRouter.get("/", controller.getAll);
-usersRouter.get("/:id", controller.getById);
-usersRouter.post("/create", controller.create);
-usersRouter.put("/update", controller.update);
-usersRouter.delete("/delete", controller.delete);*/
+usersRoute.get("/all",         controller.getAll);
+usersRoute.get("/byid",         controller.getById);
+usersRoute.post("/post",       controller.insert);
+usersRoute.delete("/delete",   controller.delete);
 
-const usersrouter = usersRouter();
-usersrouter.get('/', controller);
+module.exports = usersRoute;
 
-module.exports = usersRouter;

@@ -1,57 +1,56 @@
-const db = require('../db');
+const db = require('../db')
 
-exports.getAllUsers = async (req, res) => {
-    try {
-      const users = await db('users').findAll();
-      res.json(users);
-    } catch (err) {
-      res.status(500).json({ message: 'Error fetching users', error: err });
+module.exports = {
+    getAll: async (req, res) => {
+        const users = await db.select().from('users')
+        
+        if (users) {
+            //cenario de sucesso
+            return res.json({ success: true, data: users });
+          } else {
+            //cenario de erro
+            return res.json({ success: false });
+          }
+    },
+    getById: async (req, res) => {
+      const idusers = await db.from('users').findByPk(req.params.id);
+
+        if (idusers) {
+            //cenario de sucesso
+            return res.json({ success: true, data: idusers });
+          } else {
+            //cenario de erro
+            return res.json({ success: false });
+          }
+    },
+    insert: async (req, res) => {
+      const {email, password } = req.body;
+        const postusers = await db('users').insert({ email, password }).returning('*')
+        
+        if (postusers) {
+            //cenario de sucesso
+            return res.json({ success: true, data: postusers });
+          } else {
+            //cenario de erro
+            return res.json({ success: false });
+          }
+    },
+    delete: async (req, res) => {
+        //const deletedusers = await db('users').delete({where:{ id: req.body.id },}).returning('*');
+        const id = req.body.id;
+
+        await db('users').delete({
+          where: {
+            id_utilizador: id,
+          },
+        });
+        
+        if (deletedusers) {
+            //cenario de sucesso
+            return res.json({ success: true, data: deletedusers });
+          } else {
+            //cenario de erro
+            return res.json({ success: false });
+          }
     }
-  };
-  
-  exports.getUserById = async (req, res) => {
-    try {
-      const user = await User.findByPk(req.params.id);
-      if (!user) {
-        return res.status(404).json({ message: 'User not found' });
-      }
-      res.json(user);
-    } catch (err) {
-      res.status(500).json({ message: 'Error fetching user', error: err });
-    }
-  };
-  
-  exports.createUser = async (req, res) => {
-    try {
-      const newUser = await User.create(req.body);
-      res.status(201).json(newUser);
-    } catch (err) {
-      res.status(500).json({ message: 'Error creating user', error: err });
-    }
-  };
-  
-  exports.updateUser = async (req, res) => {
-    try {
-      const user = await User.findByPk(req.params.id);
-      if (!user) {
-        return res.status(404).json({ message: 'User not found' });
-      }
-      await user.update(req.body);
-      res.json(user);
-    } catch (err) {
-      res.status(500).json({ message: 'Error updating user', error: err });
-    }
-  };
-  
-  exports.deleteUser = async (req, res) => {
-    try {
-      const user = await User.findByPk(req.params.id);
-      if (!user) {
-        return res.status(404).json({ message: 'User not found' });
-      }
-      await user.destroy();
-      res.json({ message: 'User deleted' });
-    } catch (err) {
-      res.status(500).json({ message: 'Error deleting user', error: err });
-    }
-  };
+}
