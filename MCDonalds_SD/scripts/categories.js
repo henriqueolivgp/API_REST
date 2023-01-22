@@ -1,4 +1,4 @@
-const db = require('../scripts/knexfile');
+const db = require('../services/knexfile');
 
 ;(async () => {
   try {

@@ -12,7 +12,7 @@ module.exports = {
     client: 'postgres',
     connection: {
       user: 'postgres',
-      password: '8525',
+      password: '1234',
       database: 'docker',
     },
     pool: {
