@@ -15,7 +15,7 @@ module.exports = knex({
 
 //docker compose down
 
-//docker exec mcdonalds_sd-server-1 npm run migrate
+//docker exec mcdonalds_sd-server-1 npm run users
 
 //psql -d postgres -h localhost -p 4321 -U postgres
 //password=123456
