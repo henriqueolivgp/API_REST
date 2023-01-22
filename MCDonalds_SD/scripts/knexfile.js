@@ -5,18 +5,15 @@
  * @type { Object.<string, import("knex").Knex.Config> }
  */
 
-const db = require('../db')
 
 module.exports = {
 
   development: {
-    client: 'postgresql',
+    client: 'postgres',
     connection: {
-      host: db,
-      user: docker,
-      password: 123456,
-      database: docker,
-      port: 5432
+      user: 'postgres',
+      password: '8525',
+      database: 'docker',
     },
     pool: {
       min: 2,

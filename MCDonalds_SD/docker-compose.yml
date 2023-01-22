@@ -10,8 +10,9 @@ services:
     ports:
       - '4321:5432'
     environment:
-      POSTGRES_PASSWORD: '123456'
+      POSTGRES_PASSWORD: '4578'
       POSTGRES_USERNAME: 'docker'
+      POSTGRES_DATABASE: 'docker'
     volumes:
       - data:/var/lib/postgresql/data
 

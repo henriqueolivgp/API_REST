@@ -1,4 +1,4 @@
-const db = require('../db')
+const db = require('../scripts/knexfile')
 const crypto  = require('crypto-js');
 
 module.exports = {

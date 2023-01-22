@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const {parse} = require('csv-parse');
 const fs = require('fs');
 const config = require('./config');
-const db = require('./db')
+const db = require('./scripts/knexfile')
 
 const parser = parse({columns:true}, function (err, records){
   console.log(records);
