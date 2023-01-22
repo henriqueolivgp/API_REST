@@ -1,4 +1,4 @@
-const db = require('../scripts/knexfile')
+const db = require('../data/database')
 const crypto  = require('crypto-js');
 
 module.exports = {
