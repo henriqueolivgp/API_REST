@@ -4,8 +4,8 @@
  */
 exports.up = function(knex) {
     return knex.schema.createTable('categories', function(table) {
-        table.increments('id').primary();
-        table.string('category').notNullable()
+        table.increments('id');
+        table.string('category').primary().notNullable()
         table.timestamps(false, true);
       });
 };
