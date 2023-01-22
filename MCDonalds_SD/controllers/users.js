@@ -1,4 +1,5 @@
 const db = require('../db')
+const crypto  = require('crypto-js');
 
 module.exports = {
     getAll: async (req, res) => {
@@ -13,8 +14,8 @@ module.exports = {
           }
     },
     getById: async (req, res) => {
-      const id  = req.params;
-      const idusers = await db.from('users').findByPk(id);
+      const id = req.params.iduser;
+      const idusers = await db('users').findById(id);
 
         if (idusers) {
             //cenario de sucesso
@@ -46,5 +47,9 @@ module.exports = {
             //cenario de erro
             return res.json({ success: false });
           }
-    }
+    },
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
 }
