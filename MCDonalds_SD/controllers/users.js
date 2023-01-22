@@ -13,7 +13,8 @@ module.exports = {
           }
     },
     getById: async (req, res) => {
-      const idusers = await db.from('users').findByPk(req.params.id);
+      const id  = req.params;
+      const idusers = await db.from('users').findByPk(id);
 
         if (idusers) {
             //cenario de sucesso
@@ -36,14 +37,7 @@ module.exports = {
           }
     },
     delete: async (req, res) => {
-        //const deletedusers = await db('users').delete({where:{ id: req.body.id },}).returning('*');
-        const id = req.body.id;
-
-        await db('users').delete({
-          where: {
-            id_utilizador: id,
-          },
-        });
+        const deletedusers = await db('users').where({ id: req.body.id }).delete().returning('*');
         
         if (deletedusers) {
             //cenario de sucesso

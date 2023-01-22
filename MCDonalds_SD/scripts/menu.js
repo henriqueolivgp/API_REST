@@ -4,7 +4,7 @@ const db = require('../db');
   try {
     await db.schema.dropTableIfExists('menu')
     await db.schema.withSchema('public').createTable('menu', (table) => {
-      table.increments()
+      table.increments('id').primary()
       table.string('category')
       table.string('Item')
       table.intiger('servingSize')
