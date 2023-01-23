@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
-const usersRouter = require("./usersRoute");
-router.use("/users", usersRouter);
+const categoriesRouter = require("./categoriesRoute");
+router.use("/categories", categoriesRouter);
 
 router.get('/', (req, res) => {
 	res.send('welcome /API-REST!');

@@ -1,10 +1,7 @@
-const Pool = require('pg-pool');
+const knex = require('knex');
 
-module.exports = new Pool({
-    client: 'postgres',
-    user: 'postgres',
-    password: '1234',
-    host: 'localhost',
-    port: '5432',
-    database: 'docker',
-});
+const knexFile = require('../services/knexfile');
+
+const options = knexFile;
+
+module.exports = knex(options);
