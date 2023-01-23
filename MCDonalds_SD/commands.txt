@@ -1,0 +1,12 @@
+knex migrate:rollback 
+
+knex migrate:make
+
+knex migrate:latest
+
+iniciar docker
+docker compose up --build -d
+
+terminar docker
+docker compose down
+
