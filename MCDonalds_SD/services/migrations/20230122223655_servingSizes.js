@@ -4,9 +4,8 @@
  */
 exports.up = function(knex) {
     return knex.schema.createTable('ServingSizes', function(table) {
-        table.increments('id')
-        table.integer('servingsize').primary();
-        table.string('item').notNullable();
+        table.increments('serv_id').primary()
+        table.string('servingsize');
         table.timestamps(false, true);
       });
 };

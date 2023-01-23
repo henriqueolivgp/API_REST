@@ -10,5 +10,5 @@ docker compose up --build -d
 terminar docker
 docker compose down
 
-node csvImports.js
+nodemon csvImports.js
 

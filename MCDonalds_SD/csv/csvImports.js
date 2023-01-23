@@ -20,7 +20,7 @@ const parser = parse({columns:true}, function (err, records){
 console.log('comeco aqui');
  fs.createReadStream(__dirname+'/menu.csv').pipe(parser)
    .on('categories', (row) => { ;
-        client.query(`INSERT INTO categories (category) VALUES (${row.Category})`, (err, res) => {
+        client.query(`INSERT INTO categories (category) VALUES ($1})` [row.Category], (err, res) => {
           if (err) {
               console.log('Error inserting data: ', err);
           } else {

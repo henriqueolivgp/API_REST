@@ -7,8 +7,12 @@ exports.up = function(knex) {
         table.increments('id').primary();
         table.string('item').notNullable();
         table.integer('calories').notNullable();
-        table.integer('servingsize').unique().unsigned();
-        table.foreign('servingsize').references('ServingSizes.servingsize')
+        table.integer('serv_id').unique().unsigned();
+        table.foreign('serv_id').references('ServingSizes.serv_id')
+            .onDelete('CASCADE')
+            .onUpdate('CASCADE');
+        table.integer('cat_id').unique().unsigned();
+        table.foreign('cat_id').references('categories.cat_id')
             .onDelete('CASCADE')
             .onUpdate('CASCADE');
         table.timestamps(false, true);
