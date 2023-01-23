@@ -1,15 +1,6 @@
 const fs = require('fs');
 const {parse} = require('csv-parse');
-
-// Connect to the Postgres database
-const { Client } = require('pg');
-const client = new Client({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'docker',
-    password: '1234',
-    port: 5432,
-});
+const client = require('../services/knexfile')
 
 /*connect to the database
 client.connect(err => {
@@ -37,8 +28,8 @@ console.log('comeco aqui');
           }
       });
     })
-    .on('end', (res) => {
+    .on('end', () => {
         console.log('CSV file imported successfully');
-        client.end(res);
+       
     });
 

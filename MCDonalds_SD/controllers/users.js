@@ -1,9 +1,9 @@
-const db = require('../data/database')
+const db = require('../services/knexfile')
 const crypto  = require('crypto-js');
 
 module.exports = {
     getAll: async (req, res) => {
-        const users = await db.select().from('users')
+        const users = await db.find('users')
         
         if (users) {
             //cenario de sucesso

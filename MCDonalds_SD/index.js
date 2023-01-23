@@ -1,12 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const {parse} = require('csv-parse');
-const fs = require('fs');
-const config = require('./config');
-const db = require('./data/database')
-
-//fs.createReadStream(__dirname+'/csv/menu.csv').pipe(parser);
+const config = require('./config')
 
 const app = express();
 
@@ -20,7 +15,6 @@ app.use('/api/v1', route);
 
 // using bodyParser to parse JSON bodies into JS objects
 app.use(bodyParser.json());
-
 
 // url da api
 app.listen(config.port, () => {
