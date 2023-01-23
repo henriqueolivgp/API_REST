@@ -6,11 +6,7 @@ const fs = require('fs');
 const config = require('./config');
 const db = require('./data/database')
 
-const parser = parse({columns:true}, function (err, records){
-  console.log(records);
-});
-
-fs.createReadStream(__dirname+'/csv/menu.csv').pipe(parser);
+//fs.createReadStream(__dirname+'/csv/menu.csv').pipe(parser);
 
 const app = express();
 
